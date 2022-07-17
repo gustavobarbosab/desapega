@@ -1,0 +1,101 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0 auto;
+    background: "#EDEDED";
+}
+
+.bg-yellow {
+    background: #FFE200 0% 0% no-repeat padding-box;
+}
+
+.page-margin {
+    width: 90%;
+}
+
+input {
+    padding: 14px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #C4C4C4;
+}
+
+input::placeholder {
+    color: #C8C8C8;
+}
+
+.container {
+    height: 100%;
+    position: relative;
+}
+
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.horizontal-center {
+    margin: 0 auto;
+}
+
+.center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.side-by-side {
+    float: left;
+    display: inline-table;
+}
+
+header {
+    box-shadow: 0px 3px 6px #00000029;
+    width: 100%;
+    height: 135px;
+}
+
+#logo {
+    width: 29%;
+    min-width: 250px;
+}
+
+#logo__img {
+    width: auto;
+    height: auto;
+}
+
+#search {
+    min-width: 300px;
+    width: 39%;
+}
+
+#search input {
+    min-width: 280px;
+    width: 100%;
+}
+
+#menu {
+    width: 29%;
+}
+
+nav li {
+    font-size: large;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #707070;
+    display: inline;
+    width: 100%;
+    padding: 0 15px;
+}
+
+main {
+    display: inline-block;
+    width: 100%;
+}
