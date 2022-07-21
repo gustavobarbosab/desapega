@@ -1,0 +1,67 @@
+:root {
+    --color-secondary: #5DBDEA;
+    --color-primary: #FFE200;
+    --background: #EDEDED;
+    --font-light: #C8C8C8;
+    --font-dark: #707070;
+}
+
+/* Corpo da página */
+html,
+body {
+    width: 100%;
+    height: 100%;   
+    padding: 0px;
+    margin: 0 auto;
+    background: var(--background);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* INPUT */
+input {
+    padding: 14px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #C4C4C4;
+}
+
+input::placeholder {
+    color: var(--font-light);
+}
+
+/* COMMON CLASSES */
+.page-margin {
+    width: 90%;
+}
+
+.container {
+    position: relative;
+}
+
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.horizontal-center {
+    margin: 0 auto;
+}
+
+.center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.side-by-side {
+    display: inline-table;
+}
+
+.border-test {
+    border: var(--font-dark) solid 1px;
+}
