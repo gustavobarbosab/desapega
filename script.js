@@ -2,7 +2,7 @@
 //     const path = window.location.pathname.split("/");
 
 //     switch (path[1]) {
-//         case "":
+//         case "home":
 //             {
 //                 loadPage("home");
 //                 break;

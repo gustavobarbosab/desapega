@@ -3,14 +3,17 @@
 /* HEADER */
 header {
     position: relative;
-    background: var(--color-primary) 0% 0% no-repeat padding-box;
+    background-color: var(--color-primary);
     box-shadow: 0px 3px 6px #00000029;
     width: 100%;
     height: fit-content;
 }
 
-#logo, #search, #menu {
-    height: 115px;
+#logo,
+#search,
+#menu {
+    min-height: 115px;
+    padding: 0;
 }
 
 /* LOGO */
@@ -33,10 +36,12 @@ header {
     width: 100%;
 }
 
+#search>div {
+    width: 80%;
+}
+
 /* MENU DE NAVEGAÇÃO */
 #menu {
-    left: 0;
-    top: 0;
     width: 29%;
 }
 
@@ -44,8 +49,17 @@ nav li {
     font-size: large;
     color: var(--font-dark);
     display: inline;
-    width: 100%;
-    padding: 0 15px;
+    padding: 10px;
+}
+
+nav li:hover {
+    color: white;
+    cursor: pointer;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
 }
 
 /* CONTEUDO */
@@ -57,13 +71,11 @@ main {
 /* RESPONSIVIDADE */
 
 /* tablets */
-@media only screen and (max-width: 1300px) {
-
-    
-}
+@media only screen and (max-width: 1300px) {}
 
 /* smartphone */
 @media only screen and (max-width: 800px) {
+
     /* LOGO */
     #logo,
     #search,
@@ -72,7 +84,7 @@ main {
     }
 
     #search>div,
-    #menu>nav {
+    #menu>div {
         margin: 0;
         position: absolute;
         top: 50%;
@@ -81,12 +93,10 @@ main {
         transform: translate(-50%, -50%);
     }
 
-    #menu, #search, #logo {
-        margin: 30px 0;
-        height: fit-content;
-    }
-
     nav li {
+        width: 100%;
         display: block;
+        padding: 10px;
+        text-align: center;
     }
 }
