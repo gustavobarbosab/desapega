@@ -1,0 +1,55 @@
+@import "./style.css";
+
+/* CABEÇALHO  */
+
+.header_desapega{
+    background-color: var(--color-primary);
+    min-height: 40px;
+    padding: 30px;
+    height: fit-content;
+    /* display: flex;
+    justify-content: space-evenly; */
+}
+
+/* OPCÕES CABEÇALHO */
+
+.header_desapega input, .header_desapega a:visited , .header_desapega a, .header_desapega img{
+    margin: 0px 5%;
+}
+
+.header_desapega input{
+    height: 40px;
+    width: 40%;
+    padding-left: 20px;
+    outline: none;
+    border: 1px solid #cacaca;
+    
+}
+
+.header_desapega a:visited , .header_desapega a{
+    text-decoration: none;
+    margin: 10px 10px;
+    color: var(--font-dark);
+}
+
+
+/* RESPONSIVIDADE */
+@media only screen and (max-width: 1300px) {
+
+    .header_desapega input, .header_desapega a:visited , .header_desapega a, .header_desapega img{
+        margin: 0px 2%;
+    }
+}
+
+/* smartphone */
+@media only screen and (max-width: 800px) {
+
+    .header_desapega input, .header_desapega a:visited , .header_desapega a, .header_desapega img{
+        margin: 15px 15%;
+    }
+
+    .header_desapega input{
+        width: 60%; 
+    }
+    
+}
