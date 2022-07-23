@@ -28,7 +28,11 @@ body{
     text-decoration: none;
     color: var(--font-dark);
 
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.500);
+}
+
+.card-desapega:hover, .card-desapega:visited:hover{  
+    animation: up-down 500ms normal;
 }
 
 /* CARD HEADER */
@@ -60,6 +64,21 @@ body{
     height: 70px;
     overflow-y: hidden;
     box-shadow: 0 8px 20px -15px var(--font-dark);
+}
+
+
+/* EFEITO */
+
+@keyframes up-down {
+    from{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(-3px);
+    }
+    to{
+        transform: translateY(0px);
+    }   
 }
 
 /* RESPONSIVIDADE */
