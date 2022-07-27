@@ -13,7 +13,7 @@ window.onload = function () {
 
         const xhr = new XMLHttpRequest();
         xhr.open("GET", "pages/" + path + "/index.html");
-        xhr.responseType = "document";
+        // xhr.responseType = "document";
         xhr.onload = function () {
             if (xhr.status == 200) {
                 container.innerHTML = xhr.responseText;
