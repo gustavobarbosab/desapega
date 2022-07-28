@@ -27,11 +27,11 @@ body{
 
 /* DADOS PRODUTO */
 .productDetail{
-    height: 330px;
+    min-height: 330px;
     width: 35%;
-    margin: 0px 33px;
+    margin: 32px 33px;
     display: inline-block;
-    transform: translate(0,-50px);
+    vertical-align: top;
 }
 
 .productDetail h3{
@@ -46,7 +46,9 @@ body{
 }
 
 .productDetail p{
+    max-height: 210px;
     height: 210px;
+    overflow-y: scroll;
     color: #A3A3A3;
 }
 
@@ -75,8 +77,10 @@ footer{
         width: 75%;
     }
     .productDetail{
-        transform: translate(0,-40px);
         width: 40%;
+    }
+    #imageProduct{
+        margin: 32px 30px 0px 33px;
     }
 
 }
@@ -87,8 +91,10 @@ footer{
         width: 90%;
     }
     .productDetail{
-        transform: translate(0,0);
         width: 90%;
+    }
+    #imageProduct{
+        margin: 32px 30px 0px 33px;
     }
     
 }

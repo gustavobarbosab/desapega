@@ -1,0 +1,14 @@
+@import "../../commons/style.css";
+
+#priceInput {
+    padding: 2px;
+    display: none;
+    border-radius: 5px;
+    margin-top: 2px;
+
+}
+
+.productDetail span{
+    font-size: x-small;
+    color: var(--font-light);
+}
