@@ -8,6 +8,10 @@
 
 }
 
+.productDetail p{
+    overflow-y: scroll;
+}
+
 .productDetail span{
     font-size: x-small;
     color: var(--font-light);

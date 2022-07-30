@@ -16,7 +16,8 @@ body{
 
 /* CARD */
 
-.card-desapega, .card-desapega:visited{
+.card-desapega{
+    position: relative;
     height: fit-content;
     width: 360px;
     box-shadow: 0px 0px 10px var(--shadow);
@@ -25,14 +26,13 @@ body{
     display: inline-block;
     margin: 1%;
 
-    text-decoration: none;
-    color: var(--font-dark);
-
     background-color: rgba(255, 255, 255, 0.500);
 }
 
-.card-desapega:hover, .card-desapega:visited:hover{  
-    animation: up-down 500ms normal;
+/* CARD ANCHOR  */
+.cardLink, .cardLink:visited{
+    text-decoration: none;
+    color: var(--font-dark);
 }
 
 /* CARD HEADER */
@@ -66,20 +66,26 @@ body{
     box-shadow: 0 8px 20px -15px var(--font-dark);
 }
 
+.delButton{
+    position: absolute;
+    right: -15px;
+    top: -10px;
+    border-radius: 80%;
+    background: #DB1D00;
+    color: white;
+    border: none;
+    cursor: pointer;
+    visibility: hidden;
+}
+.delButton i{
+    padding: 7px;
+}
+.delButton:hover{
+    background-color: #b91900;
+}
 
 /* EFEITO */
 
-@keyframes up-down {
-    from{
-        transform: translateY(0px);
-    }
-    50%{
-        transform: translateY(-3px);
-    }
-    to{
-        transform: translateY(0px);
-    }   
-}
 
 /* RESPONSIVIDADE */
 
