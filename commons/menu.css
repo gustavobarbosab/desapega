@@ -1,0 +1,64 @@
+@import "./style.css";
+
+.menu{
+    position: fixed;
+    top:110px;
+    height: fit-content;
+    width: 2%;
+    overflow-x: hidden; 
+    border-right: 4px solid var(--color-primary);
+    z-index: 99;
+}
+
+.menu:hover{
+    width: 15%;
+}
+
+.menu:hover, .menu, .menuItem:hover, .menuItem{
+    transition-timing-function: ease;
+    transition-duration: 1000ms;
+}
+
+.menuItem {
+    padding: 10px;
+    border: none;
+    min-width: 120px;
+    width: 100%;
+    margin: 5px 0;
+    background-color: rgba(255, 255, 255, 0.527);
+}
+
+.menuItem:hover{
+    background-color: var(--color-primary);
+}
+
+/* RESPONSIVIDADE */
+@media only screen and (max-width: 1300px) {
+
+    .menu{
+        width: 5%;
+    }
+    
+    .menu:hover{
+        width: 10%;
+    }
+    
+}
+
+/* smartphone */
+@media only screen and (max-width: 800px) {
+
+    .menu{
+        width: 10%;
+        opacity: 70%;
+    }
+    
+    .menu:hover{
+        width: 20%;
+        opacity: 100%;
+    }
+    .btn-modeDelete {
+        padding: 10px;
+    }
+    
+}
