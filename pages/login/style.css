@@ -1,0 +1,53 @@
+#login__container {
+    padding: 20px;
+    min-width: 30%;
+}
+
+#login__container>div {
+    min-width: 300px;
+}
+
+#login__container input {
+    min-width: 90%;
+}
+
+#login__container_email {
+    margin-top: 30px;
+}
+
+#login__container_password {
+    margin-top: 15px;
+}
+
+#login__btn_enter {
+    margin-top: 30px;
+}
+
+#login__btn_register {
+    margin-top: 5px;
+}
+
+#login__container_title h1 {
+    text-align: center;
+}
+
+/* tablets */
+@media only screen and (max-width: 1300px) {
+    #login__container {
+        min-width: 40%;
+    }
+}
+
+/* phones */
+@media only screen and (max-width: 768px) {
+    #login__container {
+        min-width: 60%;
+    }
+}
+
+/* small phones */
+@media only screen and (max-width: 600px) {
+    #login__container>div {
+        min-width: 200px;
+    }
+}
