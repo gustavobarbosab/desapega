@@ -1,1 +1,27 @@
-<h1>Eu sou o cadastro</h1>
+<div id="register__container" class="container content">
+    <div class="center">
+        <form action="register.php" method="post" enctype="multipart/form-data" autocomplete="on">
+            <div id="register__container_title">
+                <h1 class="text_light">Cadastro</h1>
+            </div>
+            <div id="register__container_name" class="mt30">
+                <input type="text" name="name" id="name" autofocus required placeholder="Nome">
+            </div>
+            <div id="register__container_cpf" class="mt15">
+                <input type="number" id="cpf" name="cpf" required placeholder="CPF (Somente números)">
+            </div>
+            <div id="register__container_email" class="mt15">
+                <input type="email" id="email" name="email" required placeholder="Email">
+            </div>
+            <div id="register__container_phone" class="mt15">
+                <input type="tel" id="phone" name="phone" required placeholder="Telefone">
+            </div>
+            <div id="register__container_password" class="mt15">
+                <input type="password" id="password" name="password" required placeholder="Senha">
+            </div>
+            <div id="register__btn_enter" class="mv30">
+                <button type="submit" class="bt_primary">Entrar</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -34,6 +34,12 @@ input::placeholder {
     color: var(--font-light);
 }
 
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
 /* COMMON CLASSES */
 .page-margin {
     width: 90%;
@@ -105,4 +111,26 @@ input::placeholder {
 
 .text_light {
     color: var(--font-light);
+}
+
+
+/* margins */
+.mt15 {
+    margin-top: 15px;
+}
+
+.mb30 {
+    margin-bottom: 30px;
+}
+
+.mh30 {
+    margin: 0 30px;
+}
+
+.mv30 {
+    margin: 30px 0;
+}
+
+.m30 {
+    margin: 30px;
 }

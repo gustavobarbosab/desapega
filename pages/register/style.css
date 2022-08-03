@@ -1,0 +1,39 @@
+#register__container {
+    min-width: 30%;
+    min-height: 550px;
+    height: fit-content;
+}
+
+#register__container>div {
+    width: 100%;
+    padding: 0 60px;
+}
+
+#register__container input {
+    max-width: 100%;
+}
+
+#register__container_title h1 {
+    text-align: center;
+}
+
+/* tablets */
+@media only screen and (max-width: 1300px) {
+    #register__container {
+        min-width: 40%;
+    }
+}
+
+/* phones */
+@media only screen and (max-width: 768px) {
+    #register__container {
+        min-width: 60%;
+    }
+}
+
+/* small phones */
+@media only screen and (max-width: 600px) {
+    #register__container>div {
+        min-width: 200px;
+    }
+}
