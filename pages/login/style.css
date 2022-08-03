@@ -4,27 +4,12 @@
 }
 
 #login__container>div {
-    min-width: 300px;
+    width: 100%;
+    padding: 0 60px;
 }
 
 #login__container input {
-    min-width: 90%;
-}
-
-#login__container_email {
-    margin-top: 30px;
-}
-
-#login__container_password {
-    margin-top: 15px;
-}
-
-#login__btn_enter {
-    margin-top: 30px;
-}
-
-#login__btn_register {
-    margin-top: 5px;
+    min-width: 100%;
 }
 
 #login__container_title h1 {

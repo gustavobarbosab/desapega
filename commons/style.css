@@ -119,6 +119,10 @@ input::placeholder {
     margin-top: 15px;
 }
 
+.mt30 {
+    margin-top: 30px;
+}
+
 .mb30 {
     margin-bottom: 30px;
 }
