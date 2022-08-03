@@ -1,87 +1,28 @@
-var produtos = [
-    {
-        "name":"notebook Slim",
-        "preco":"4000,00",
-    },
-    {
-        "name":"mouse",
-        "preco":"50,00",
-    },
-    {
-        "name":"teclado",
-        "preco":"500,00",
-    },
-    {
-        "name":"cadeira gamer super insana e colorida para toda a familia",
-        "preco":"7000,00",
-    },
-    {
-        "name":"mouse pad",
-        "preco":"40,00",
-    },
-    {
-        "name":"caderno",
-        "preco":"407,00",
-    },
-    {
-        "name":"gabinete",
-        "preco":"2541,00",
-    },
-    {
-        "name":"notebook Slim",
-        "preco":"4000,00",
-    },
-    {
-        "name":"mouse",
-        "preco":"50,00",
-    },
-    {
-        "name":"teclado",
-        "preco":"500,00",
-    },
-    {
-        "name":"cadeira gamer super insana e colorida para toda a familia",
-        "preco":"7000,00",
-    },
-    {
-        "name":"mouse pad",
-        "preco":"40,00",
-    },
-    {
-        "name":"caderno",
-        "preco":"407,00",
-    },
-    {
-        "name":"gabinete",
-        "preco":"2541,00",
-    },
-]
+window.onload = function () {
+    loadPage("home") // TODO remover
+    document.querySelectorAll(".menu__item").forEach((item) => {
+        item.addEventListener("click", function () {
+            const path = item.getAttribute("value");
+            loadPage(path);
+        });
+    });
 
-const appendProducts = function () {
-    let content = document.querySelector(".content");
-    let template = document.querySelector("#templateProduct");
+    function loadPage(path) {
+        if (path == "") return;
 
-    for(item of produtos){
+        const container = document.getElementById("main__container");
 
-        let Card = template.innerHTML
-          .replace("{{item.name}}", item.name)
-          .replace("{{item.preco}}", item.preco);
-
-        content.insertAdjacentHTML("beforeend", Card);
-
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", "pages/" + path + "/index.html");
+        xhr.onload = function () {
+            if (xhr.status == 200) {
+                container.innerHTML = xhr.responseText;
+                document.title = path;
+            }
+        };
+        xhr.onerror = function(error) {
+            console.log("Errooo " + error);
+        };
+        xhr.send();
     }
 }
-
-
-window.onload = function(){
-
-    appendProducts();
-
-}
-
-window.onscroll = function () {
-    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-            fetch("buscaProduto.php?pagina='6'");
-            // terminar de fazer o Ajax
-    }
-  };
