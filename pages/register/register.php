@@ -1,5 +1,6 @@
 <?php
-require  __DIR__ . "/database/conexaoMysql.php";
+require  "../../database/conexaoMysql.php";
+require  "../../commons/php/baseResponse.php";
 $pdo = mysqlConnect();
 
 $username = $_POST["name"];
@@ -14,6 +15,7 @@ $sqlToInsertData = <<<SQL
   VALUES (:nome, :cpf, :email, :telefone, :password_hash)
 SQL;
 
+header("Content-Type: application/json");
 try {
     $pdo->beginTransaction();
     $statementToInsert = $pdo->prepare($sqlToInsertData);
@@ -28,7 +30,9 @@ try {
         throw new Exception('Insertion error, please check your data or database');
     }
     $pdo->commit();
+    echo json_encode(new RequestResponse(true, "Cadastro efetuado com sucesso!"));
 } catch (Exception $ex) {
     $pdo->rollBack();
-    exit("We cannot register this data, please check the database or your data");
+    http_response_code(500);
+    echo json_encode(new RequestResponse(false, $ex->getMessage()));
 }

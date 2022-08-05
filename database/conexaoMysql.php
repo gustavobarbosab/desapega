@@ -5,7 +5,7 @@ function mysqlConnect()
   $db_host = "sql300.epizy.com";
   $db_username = "epiz_32307672";
   $db_password = "c3BoY1CbPxWrU";
-  $db_name = "epiz_31662132_trabalho7";
+  $db_name = "epiz_32307672_desapego";
 
   // dsn é apenas um acrônimo de database source name
   $dsn = "mysql:host=$db_host;dbname=$db_name;charset=utf8mb4";

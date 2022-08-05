@@ -10,7 +10,7 @@ function sendForm(form) {
         body: formData
     }
 
-    fetch(form.getAttribute("action"), options)
+    fetch("/pages/register/register.php", options)
         .then(response => {
             if (!response.ok) {
                 throw new Error(response.status);
@@ -25,8 +25,8 @@ function sendForm(form) {
                 alert("Houve um erro, tente novamente!")
             }
         })
-        .catch(() => {
-            console.error("Erro de rede - requisição não finalizada");
+        .catch(error => {
+            console.error("Erro de rede - requisição não finalizada: " + error);
         })
 }
 
