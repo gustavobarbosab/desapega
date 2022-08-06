@@ -1,18 +1,26 @@
-export default function loadPage(pathToPages, page) {
-    if (page == "") return;
+export default class Page {
+    constructor(path, filename) {
+        this.path = path;
+        this.filename = filename;
+    }
 
-    const container = document.getElementById("main__container");
+    load() {
+        const path = this.path
+        if (path == "") return;
 
-    const xhr = new XMLHttpRequest();
-    xhr.open("GET", pathToPages + page + "/index.html");
-    xhr.onload = function () {
-        if (xhr.status == 200) {
-            container.innerHTML = xhr.responseText;
-            document.title = page;
-        }
-    };
-    xhr.onerror = function(error) {
-        console.log("Errooo " + error);
-    };
-    xhr.send();
+        const container = document.getElementById("main__container");
+
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", `/pages/${path}/${this.filename}`);
+        xhr.onload = function () {
+            if (xhr.status == 200) {
+                container.innerHTML = xhr.responseText;
+                document.title = path.toLocaleUpperCase();
+            }
+        };
+        xhr.onerror = function (error) {
+            console.log("Erro ao carregar a página " + error);
+        };
+        xhr.send();
+    }
 }
