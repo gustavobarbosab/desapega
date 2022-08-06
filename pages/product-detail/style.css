@@ -16,7 +16,6 @@ body{
     background-color: #fff;
     min-height: 400px;
     height: fit-content;
-
 }
 
 /* IAMGEM */
@@ -28,7 +27,7 @@ body{
 /* DADOS PRODUTO */
 .productDetail{
     min-height: 330px;
-    width: 50%;
+    width: 30%;
     margin: 32px 33px;
     display: inline-block;
     vertical-align: top;

@@ -13,38 +13,82 @@ window.onload = function(){
         if(priceInput.value){
             priceInput.style.display = "none";
             let price_converted = parseFloat(priceInput.value)
-            priceField.innerText = price_converted.toLocaleString("pt-br",{style:'currency',currency: 'BRL'});
-            priceInput.value = "";
+            priceField.innerHTML = price_converted.toLocaleString("pt-br",{style:'currency',currency: 'BRL'});
         }
     })
 
-    document.forms.formedit.addEventListener("submit",(e)=>{
-        e.preventDefault();
+    document.querySelector("button[type=submit]").addEventListener("click",()=>{
+        console.log("clicado");
 
-        let codigo = window.location.search ? window.location.search.split('?')[1] : 1;
+        let codigo = window.location.search.split("?cod=")[1];
     
-        prepareData(codigo);
+        prepareData();
 
-        document.forms.formedit.submit();
-
+        let formData = new FormData(document.forms.formedit);
+        formData.append("cod", codigo);
+        
+        submitData(formData);
     });
+
+    buscaDadoProduto();
+
 }
 
-function prepareData(codigo) {
-    let title = document.querySelector(".productDetail h3");
-    let price = document.querySelector("#price");
-    let description = document.querySelector(".productDetail p");
+const submitData = async function (form) {
+
+    const options = {
+        method: "POST",
+        body: form
+    }
+    let response = await fetch("editaproduto.php",options);
+
+    if(!response.ok) throw new Error(response.statusText);
+
+    var data = await response.json();
+
+    if(data.success) alert(data.detail);
+    else alert("falha");
+}
+
+function prepareData() {
+    let title = document.querySelector("#titleField");
+    let description = document.querySelector("#descriptionField");
 
     document.querySelector("#titleInput").value = title.innerHTML;
     document.querySelector("#descriptionInput").value = description.innerHTML;
-    document.querySelector("#priceInput").value = price.innerHTML;
 
-    
- 
 }
 
-const handleEdit = async function () {
+const buscaDadoProduto = async function () {
 
+    let codigo = window.location.search.split("?cod=")[1];
+
+    try {
+        let response = await fetch(
+            `buscaproduto.php?cod=${codigo}`
+        )
+        if(!response.ok) throw new Error(response.statusText);
+        var data = await response.json();
+
+        preencheDado(data);
+
+    }catch (err) {
+        console.error(err);
+        return;
+    }
+}
+
+const preencheDado = dados => {
+
+    let titleF = document.querySelector("#titleField");
+    let descriptionF = document.querySelector("#descriptionField");
+    let priceF = document.querySelector("#price");
+
+    
+    titleF.innerHTML = dados.titulo;
+    descriptionF.innerHTML = dados.descricao;
+    document.querySelector("#priceInput").value = dados.preco;
+    priceF.innerHTML = parseFloat(dados.preco).toLocaleString("pt-br",{style:'currency',currency: 'BRL'});
 
 }
 

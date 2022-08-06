@@ -29,7 +29,7 @@
             <!-- conteudo dinamico  -->
             <template id="templateProduct">
                 <div class="card-desapega">
-                    <a href="../../pages/product-edit?{{item.cod}}" class="cardLink">
+                    <a href="../../pages/product-detail/?cod={{item.cod}}" class="cardLink">
                         <div class="card-product">
                             <img 
                                 src="../../commons/images/placeholder_product.jpg" 
@@ -43,7 +43,7 @@
                             </div>
                         </div>
                         <p class="card-description">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis cum sit quam fugit, nulla animi laudantium totam ratione optio a tempora commodi obcaecati quibusdam labore assumenda dolor harum reiciendis eaque?
+                            {{item.description}}
                         </p>
                     </a>
                     <button class="delButton" type="button">

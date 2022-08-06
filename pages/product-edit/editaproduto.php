@@ -20,7 +20,7 @@
         $pdo->beginTransaction();
 
         $stmt = $pdo->prepare($sql);
-        if(!$stmt->execute([$newDescription,$newTitle,$NewPrice])){
+        if(!$stmt->execute([$newDescription,$NewPrice,$newTitle])){
             throw new Exception('Edit error');
         }
 

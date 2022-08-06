@@ -57,16 +57,17 @@ var produtos = [
     },
 ]
 
-const appendProducts = function () {
+const appendProducts = function (dados) {
     let content = document.querySelector(".content");
     let template = document.querySelector("#templateProduct");
 
-    for(item of produtos){
+    for(item of dados){
 
         let Card = template.innerHTML
-            .replace("{{item.cod}}",'1')
-            .replace("{{item.name}}", item.name)
-            .replace("{{item.preco}}", item.preco);
+            .replace("{{item.cod}}",item.codigo)
+            .replace("{{item.name}}", item.titulo)
+            .replace("{{item.preco}}", item.preco)
+            .replace("{{item.description}}",item.descricao);
 
         content.insertAdjacentHTML("beforeend", Card);
 
@@ -75,7 +76,7 @@ const appendProducts = function () {
 
 const searchProduct = async function(pchave1,pchave2,pchave3) {
     let totalcards = document.querySelectorAll(".card-desapega");
-    let page = totalcards.length;
+    let page = 0;
     try {
         let response = await fetch(
             `buscaprodutos.php?pag=${page}&pchave1=${pchave1}&pchave2=${pchave2}&pchave3=${pchave3}`
@@ -83,7 +84,7 @@ const searchProduct = async function(pchave1,pchave2,pchave3) {
         if(!response.ok) throw new Error(response.statusText);
         var data = await response.json();
 
-        console.log(data);
+        appendProducts(data);
 
     }catch (err) {
         console.error(e);
@@ -94,12 +95,11 @@ const searchProduct = async function(pchave1,pchave2,pchave3) {
 
 window.onload = function(){
 
-    appendProducts();
-
+    searchProduct("","","");
 }
 
 window.onscroll = async function () {
     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-        searchProduct();
+        searchProduct("","","");
     }
   };

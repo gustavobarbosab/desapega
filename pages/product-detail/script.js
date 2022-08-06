@@ -3,7 +3,9 @@ window.onload = function(){
     buscaDadoProduto();
 }
 
-const buscaDadoProduto = async function (codigo) {
+const buscaDadoProduto = async function () {
+
+    let codigo = window.location.search.split("?cod=")[1];
 
     try {
         let response = await fetch(
@@ -12,10 +14,24 @@ const buscaDadoProduto = async function (codigo) {
         if(!response.ok) throw new Error(response.statusText);
         var data = await response.json();
 
-        console.log(data);
+        preencheDado(data);
 
     }catch (err) {
-        console.error(e);
+        console.error(err);
         return;
     }
+}
+
+const preencheDado = dados => {
+
+    console.log(dados);
+    let titleF = document.querySelector("#titleField");
+    let descriptionF = document.querySelector("#descriptionField");
+    let priceF = document.querySelector("#price");
+
+    
+    titleF.innerHTML = dados.titulo;
+    descriptionF.innerHTML = dados.descricao;
+    priceF.innerHTML = parseFloat(dados.preco).toLocaleString("pt-br",{style:'currency',currency: 'BRL'});
+
 }
