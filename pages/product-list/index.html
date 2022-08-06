@@ -5,7 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../commons/menu.css">
     <script src="script.js"></script>
+    <script src="deleteMode.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Listagem Produto</title>
 </head>
 <body>
@@ -25,6 +28,11 @@
         <a href="">Entrar</a>
     </header>
     <main>
+        <aside class="menu">
+            <button class="menuItem btn-modeDelete" onclick="modeDelete()">Modo deletar</button>
+            <button class="menuItem">Menu item 1</button>
+            <button class="menuItem">Menu item 2</button>
+        </aside>
        <div id="main__container" class="content">
             <!-- conteudo dinamico  -->
             <template id="templateProduct">
@@ -46,7 +54,7 @@
                             {{item.description}}
                         </p>
                     </a>
-                    <button class="delButton" type="button">
+                    <button class="delButton" type="button" onclick="deleteProduct(event)">
                         <i class="fa fa-trash" aria-hidden="true"></i>
                     </button>
                 </div>
