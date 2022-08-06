@@ -37,7 +37,19 @@
                 <h3 id="titleField"></h3>
                 <h3 id="price"></h3>
                 <p id="descriptionField"></p>
-                <button>Tenho Interesse</button>
+                <div class="modal">
+                    <div class="interesseModal">
+                        <button class="btn-close" onclick="closeModal()">X</button>
+                        <form action="registrainteresse.php" method="post" name="interesseForm" id="FormInteresse">
+                            <label for="phoneField">Tel. Contato: </label>
+                            <input type="tel" name="contato" id="phoneField" required>
+                            <label for="msgField">Mensagem para Anunciante: </label>
+                            <textarea name="mensagem" id="msgField" form="FormInteresse" required></textarea>
+                            <button class="btn-primary" type="submit">Enviar</button>
+                        </form>
+                    </div>
+                </div>
+                <button class="btn-primary" onclick="activateModal()">Tenho Interesse</button>  
             </div>  
         </div>
     </main>

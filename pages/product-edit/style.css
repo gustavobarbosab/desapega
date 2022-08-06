@@ -7,7 +7,7 @@
 }
 
 .productDetail p{
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .productDetail span{
