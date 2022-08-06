@@ -34,11 +34,13 @@
                 height="330"
                 id="imageProduct"
             >
-            <form action="" method="post" class="productDetail" name="formedit">
-                <h3 contenteditable="true">Notebook Slim</h3>
+            <form action="editaproduto.php?cod={{cod}}" method="post" class="productDetail" name="formedit">
+                <h3 id="title" contenteditable="true">Notebook Slim</h3>
                 <h3 id="price" title="Clique para editar">R$ 5000,00</h3>
-                <input type="number" name="NewPrice" id="priceInput">
-                <p contenteditable="true">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae inventore fuga exercitationem officia impedit, qui ipsa corporis quos commodi debitis et asperiores voluptatum tenetur, iusto expedita, dolores praesentium atque maxime.</p>
+                <input id="priceInput" type="number" name="NewPrice" >
+                <p id="description" contenteditable="true">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae inventore fuga exercitationem officia impedit, qui ipsa corporis quos commodi debitis et asperiores voluptatum tenetur, iusto expedita, dolores praesentium atque maxime.</p>
+                <input id="titleInput" type="text" name="titleInput" hidden>
+                <input id="descriptionInput" type="text" name="descriptionInput" hidden>
                 <button type="submit">Confirmar Edição</button> 
                 <span>Clique nos campos para editar</span>
             </form>

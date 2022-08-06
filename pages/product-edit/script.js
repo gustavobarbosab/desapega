@@ -18,14 +18,33 @@ window.onload = function(){
         }
     })
 
-    document.forms.formedit.addEventListener("submit",getData());
+    document.forms.formedit.addEventListener("submit",(e)=>{
+        e.preventDefault();
+
+        let codigo = window.location.search ? window.location.search.split('?')[1] : 1;
+    
+        prepareData(codigo);
+
+        document.forms.formedit.submit();
+
+    });
 }
 
-function getData() {
+function prepareData(codigo) {
     let title = document.querySelector(".productDetail h3");
     let price = document.querySelector("#price");
     let description = document.querySelector(".productDetail p");
 
-    window.alert(title.innerText + " " + price.innerText + " " + description.innerText);
+    document.querySelector("#titleInput").value = title.innerHTML;
+    document.querySelector("#descriptionInput").value = description.innerHTML;
+    document.querySelector("#priceInput").value = price.innerHTML;
+
+    
+ 
+}
+
+const handleEdit = async function () {
+
+
 }
 
