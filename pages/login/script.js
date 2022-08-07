@@ -1,10 +1,8 @@
-import Page from "../../commons/script/load-page.js"
-
 export default function startLogin() {
     const form = document.querySelector("#form-login");
     form.onsubmit = function (e) {
-      sendForm(form);
-      e.preventDefault();
+        sendForm(form);
+        e.preventDefault();
     }
 }
 
@@ -26,7 +24,7 @@ function sendForm(form) {
         })
         .then(response => {
             if (response.success) {
-                alert(response.message);
+                window.location.replace('/pages/product-list/index.html');
             } else {
                 showError()
                 alert("Houve um erro, tente novamente!");

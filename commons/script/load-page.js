@@ -62,6 +62,11 @@ export default class Page {
                     newPage.pageTitle = "Login";
                     break;
                 }
+            case "default-product-list":
+                {
+                    newPage.pageTitle = "Nossos produtos";
+                    break;
+                }
             default:
                 {
                     newPage.pageTitle = "404";
