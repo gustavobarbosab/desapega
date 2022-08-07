@@ -1,16 +1,15 @@
 <?php
 require_once "../../database/conexaoMysql.php";
 require_once "../../commons/php/autenticacao.php";
+require_once "../../commons/php/baseResponse.php";
 
 session_start();
 $pdo = mysqlConnect();
-exitWhenNotLogged($pdo);
 
-?>
-<h2>Dados corretos! Bem Vindo!</h2>
-<p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut tenetur distinctio odio vel possimus necessitatibus
-    aut ab nesciunt beatae, laudantium at alias, quaerat debitis quam labore fugit dolores amet? Temporibus.</p>
-<hr>
-<p><strong>Dica:</strong> clique em sair e posteriormente tente acessar esta página digitando diretamente 'home.php' na barra de endereços do navegador</p>
-<a href="logout.php">SAIR<a>
-
+http_response_code(302);
+if (checkLogged($pdo)) {
+    echo json_encode(RequestResponse::newPage(true, "/pages/product-detail/index.html"));
+} else {
+    echo json_encode(RequestResponse::newPage(true, "/default-product-list"));
+}
+exit();

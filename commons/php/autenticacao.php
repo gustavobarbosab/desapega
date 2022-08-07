@@ -37,8 +37,8 @@ function checkLogged($pdo)
 
   // Resgata a senha hash armazenada para conferência
   $sql = <<<SQL
-    SELECT hash_senha
-    FROM cliente
+    SELECT password_hash
+    FROM anunciante
     WHERE email = ?
     SQL;
 

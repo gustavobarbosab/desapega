@@ -5,18 +5,16 @@ class RequestResponse
   public $success;
   public $message;
   public $path;
-  public $filename;
 
   function __construct()
   {
   }
 
-  public static function newPage($success, $path, $filename)
+  public static function newPage($success, $path)
   {
     $instance = new self();
     $instance->success = $success;
     $instance->path = $path;
-    $instance->filename = $filename;
     return $instance;
   }
 

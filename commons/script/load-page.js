@@ -27,6 +27,9 @@ export default class Page {
                 container.innerHTML = xhr.responseText;
                 document.title = pageTitle;
                 loadScript();
+            } else if (xhr.status == 302) {
+                let response = JSON.parse(xhr.responseText);
+                window.location.replace(response.path);
             }
         };
         xhr.onerror = function (error) {
@@ -47,6 +50,7 @@ export default class Page {
             case "":
                 {
                     newPage.path = "pages/home";
+                    newPage.filename = "home.php";
                     newPage.pageTitle = "Início";
                     break;
                 }
