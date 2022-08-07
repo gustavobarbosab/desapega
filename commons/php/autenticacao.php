@@ -66,7 +66,7 @@ function checkLogged($pdo)
 function exitWhenNotLogged($pdo)
 {
   if (!checkLogged($pdo)) {
-    header("Location: default-list");
+    http_response_code(401);
     exit();
   }
 }

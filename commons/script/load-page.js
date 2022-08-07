@@ -1,6 +1,7 @@
 // Include here the function to start the page script and reference it in function createPage 
 import startRegister from "../../pages/register/register.js";
 import startLogin from "../../pages/login/script.js";
+import startDefaultList from "../../pages/default-product-list/script.js";
 
 export default class Page {
 
@@ -68,6 +69,7 @@ export default class Page {
                 }
             case "default-product-list":
                 {
+                    newPage.loadScript = startDefaultList
                     newPage.pageTitle = "Nossos produtos";
                     break;
                 }
