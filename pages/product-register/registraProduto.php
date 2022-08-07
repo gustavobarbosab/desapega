@@ -13,7 +13,7 @@ require  "../../commons/php/baseResponse.php";
     $estado = $_POST['estado'] ?? "";
     $codcategoria = $_POST['codcategoria'] ?? "";    
     $codanunciante = $_POST['codanunciante'] ?? "";    
-    $fotos = $_FILES['imagens'] ?? "";    
+    $fotos = $_FILES['name'] ?? "";    
         
     try{
         $pdo->beginTransaction();
