@@ -138,3 +138,7 @@ input::placeholder {
 .m30 {
     margin: 30px;
 }
+
+.menu__item {
+    cursor: pointer;
+}
