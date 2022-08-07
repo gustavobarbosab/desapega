@@ -24,8 +24,7 @@ function cadastrarProduto(form){
     xhr.open(method, url);
     xhr.onreadystatechange = function(){
         if(xhr.status == 200){
-            let response = xhr.responseText;
-            console.log(response);
+            console.log('Cadastrado com sucesso');
         }
     } 
     xhr.send(produto);
