@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <title>Registro De Produto</title>
+</head>
+<body>
+    <header class="header_desapega">
+        <img 
+            src="../../commons/images/logo.svg" 
+            alt="logo_desapega"
+            height="40"
+        >
+        <input 
+            type="text" 
+            name="searchBar" 
+            id="search-bar"
+            placeholder="Busque um produto"
+        >
+        <a href="">Criar Conta</a>
+        <a href="">Entrar</a>
+    </header>
+    <main>
+       <div class="content">
+            <!-- conteudo dinamico  -->
+            <template id="templatePorduct">
+                <div class="card-desapega">
+                    <a href="" class="cardLink">
+                        <div class="card-product">
+                            <img 
+                                src="../../commons/images/placeholder_product.jpg" 
+                                alt="imagemProduto" 
+                                width="200"
+                                height="160"
+                            >
+                            <div class="card-text">
+                                <h1>{{item.name}}</h1>
+                                <h2 id="price">R$ {{item.preco}}</h2>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis cum sit quam fugit, nulla animi laudantium totam ratione optio a tempora commodi obcaecati quibusdam labore assumenda dolor harum reiciendis eaque?
+                        </p>
+                    </a>
+                    <button class="delButton" type="button">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </template>
+            <form action="registraProduto.php" method="post" enctype="multipart/form-data" autocomplete="on">
+                <div class="form-group">
+                    <label for="titulo">Nome</label>
+                    <input type="text" name="titulo" id="titulo" autofocus required placeholder="Titulo do Produto">
+                </div>
+                <div class="form-group">
+                    <label for="descricao">Descrição</label>
+                    <input type="text" name="descricao" id="descricao" autofocus required placeholder="Descrição do Produto">
+                </div>
+                <div class="form-group">
+                    <label for="preco">Preço</label>
+                    <input type="text" name="preco" id="preco" autofocus required placeholder="Preço do Produto">
+                </div>
+                <div class="form-group">
+                    <label for="cep">CEP</label>
+                    <input type="text" name="cep" id="cep" autofocus required placeholder="CEP do Produto">
+                </div>
+                <div class="form-group">
+                    <label for="bairro">Bairro</label>
+                    <input type="text" name="bairro" id="bairro" autofocus required placeholder="Bairro do Produto">
+                </div>
+                <div class="form-group">
+                    <label for="cidade">Cidade</label>
+                    <input type="text" name="cidade" id="cidade" autofocus required placeholder="Cidade do Produto">
+                </div>
+                <div class="form-group">
+                    <label for="estado">Estado</label>
+                    <input type="text" name="estado" id="estado" autofocus required placeholder="Estado do Produto">
+                </div>
+                <div class="form-group">
+                    <label for="cod_categoria">Categoria</label>
+                    <input type="text" name="cod_categoria" id="cod_categoria" autofocus required placeholder="Categoria do Produto">
+                </div>
+                <div class="form-group">
+                    <label for="cod_anunciante">Anunciante</label>
+                    <input type="text" name="cod_anunciante" id="cod_anunciante" autofocus required placeholder="Anunciante do Produto">
+                </div>
+                <div class="form-group">
+                    <label for="imagem">Imagem</label>
+                    <input type="file" name="imagem" id="imagem" autofocus required placeholder="Imagem do Produto">
+                </div>
+                <div id="login__btn_enter" class="mt30">
+                    <button type="submit" class="bt_primary">Cadastrar</button>
+                </div>
+                <div id="login__btn_register" class="mt15">
+                    <button class="bt_secondary">Cancelar</button>
+                </div>
+            </form>
+       </div>
+    </main>
+    <footer>
+        &copy; 2022 DESAPEGO
+    </footer>
+</body>
+</html>
