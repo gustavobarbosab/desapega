@@ -1,14 +1,17 @@
 <div id="login__container" class="container content">
     <div class="center">
-        <form action="login.php" method="post" enctype="multipart/form-data" autocomplete="on">
+        <form id="form-login" method="post" enctype="multipart/form-data" autocomplete="on">
             <div id="login__container_title">
                 <h1 class="text_light">Entrar</h1>
             </div>
             <div id="login__container_email" class="mt30">
-                <input type="email" name="username" id="username" autofocus required placeholder="Usuário">
+                <input type="email" name="email" id="email" autofocus required placeholder="E-mail">
             </div>
             <div id="login__container_password" class="mt15">
                 <input type="password" id="password" name="password" required placeholder="Senha">
+            </div>
+            <div class="col-sm-12 d-grid">
+                <p id="loginFailMsg">E-mail e/ou senha incorreta. Por favor, tente novamente.</p>
             </div>
             <div id="login__btn_enter" class="mt30">
                 <button type="submit" class="bt_primary">Entrar</button>

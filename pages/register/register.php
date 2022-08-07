@@ -30,9 +30,9 @@ try {
         throw new Exception('Insertion error, please check your data or database');
     }
     $pdo->commit();
-    echo json_encode(new RequestResponse(true, "Cadastro efetuado com sucesso!"));
+    echo json_encode(RequestResponse::basicResponse(true, "Cadastrado com sucesso!"));
 } catch (Exception $ex) {
     $pdo->rollBack();
     http_response_code(500);
-    echo json_encode(new RequestResponse(false, $ex->getMessage()));
+    echo json_encode(RequestResponse::basicResponse(false, $ex->getMessage()));
 }

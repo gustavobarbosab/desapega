@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../product-detail/style.css">
     <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="script.js"></script>
     <title>Edição Produto</title>
 </head>
@@ -34,16 +35,38 @@
                 height="330"
                 id="imageProduct"
             >
-            <form action="editaproduto.php" method="post" class="productDetail" name="formedit">
-                <h3 id="titleField" contenteditable="true"></h3>
-                <h3 id="price" title="Clique para editar"></h3>
-                <input id="priceInput" type="number" name="NewPrice" >
-                <p id="descriptionField" contenteditable="true"></p>
-                <input id="titleInput" type="text" name="titleInput" hidden>
-                <input id="descriptionInput" type="text" name="descriptionInput" hidden>
-                <button class="btn-primary" type="submit">Confirmar Edição</button> 
-                <span>Clique nos campos para editar</span>
-            </form>
+            <div class="productDetail">
+                <form action="editaproduto.php" method="post"  name="formedit">
+                    <h3 id="titleField" contenteditable="true"></h3>
+                    <h3 id="price" title="Clique para editar"></h3>
+                    <input id="priceInput" type="number" name="NewPrice" >
+                    <p id="descriptionField" contenteditable="true"></p>
+                    <address id="addressField"></address>
+                    <input id="titleInput" type="text" name="titleInput" hidden>
+                    <input id="descriptionInput" type="text" name="descriptionInput" hidden>
+                    <button class="btn-primary" type="submit">Confirmar Edição</button> 
+                    <span>Clique nos campos para editar</span>
+                    <div class="footerForm">
+                        <span class="btn-close">X</span> 
+                        <div class="row">
+                            <label for="cep">CEP</label>
+                            <input type="text" name="cep" id="cep" autofocus required placeholder="CEP do Produto">
+                        </div>
+                        <div class="row">
+                            <label for="bairro">Bairro</label>
+                            <input type="text" name="bairro" id="bairro" autofocus required placeholder="Bairro do Produto">
+                        </div>
+                        <div class="row">
+                            <label for="cidade">Cidade</label>
+                            <input type="text" name="cidade" id="cidade" autofocus required placeholder="Cidade do Produto">
+                        </div>
+                        <div class="row">
+                            <label for="estado">Estado</label>
+                            <input type="text" name="estado" id="estado" autofocus required placeholder="Estado do Produto">
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </main>
     <footer>

@@ -2,8 +2,12 @@
 
 require  "../../database/conexaoMysql.php";
 require  "../../commons/php/baseResponse.php";
+require "../../commons/php/autenticacao.php";
+
+session_start();
 $pdo = mysqlConnect();
-   
+exitWhenNotLogged($pdo);
+
 $pagina = $_GET['pag'];
 $palavraChave1 = $_GET['pchave1'] ?? "";
 $palavraChave2 = $_GET['pchave2'] ?? "";

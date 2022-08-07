@@ -1,4 +1,10 @@
-import Page from "../../commons/script/load-page.js"
+export default function startLogin() {
+    const form = document.querySelector("#form-login");
+    form.onsubmit = function (e) {
+        sendForm(form);
+        e.preventDefault();
+    }
+}
 
 function sendForm(form) {
     let formData = new FormData(form);
@@ -9,7 +15,7 @@ function sendForm(form) {
         body: formData
     }
 
-    fetch("/pages/register/register.php", options)
+    fetch("/pages/login/login.php", options)
         .then(response => {
             if (!response.ok) {
                 throw new Error(response.status);
@@ -18,8 +24,7 @@ function sendForm(form) {
         })
         .then(response => {
             if (response.success) {
-                alert(response.message);
-                Page.create("home").load();
+                window.location.replace('/pages/product-list/index.html');
             } else {
                 showError()
                 alert("Houve um erro, tente novamente!");
@@ -27,24 +32,16 @@ function sendForm(form) {
         })
         .catch(error => {
             showError()
-            console.error("Erro de rede - requisição não finalizada: " + error);
+            console.error("Erro de rede: " + error);
         })
 }
 
 function hideError() {
-    const error = document.querySelector("#registerFailMsg");
+    const error = document.querySelector("#loginFailMsg");
     error.style.display = "none"
 }
 
 function showError() {
-    const error = document.querySelector("#registerFailMsg");
+    const error = document.querySelector("#loginFailMsg");
     error.style.display = "block"
 }
- 
-export default function startRegister() {
-    const form = document.querySelector("#form-register");
-    form.onsubmit = function (e) {
-      sendForm(form);
-      e.preventDefault();
-    }
-  }
