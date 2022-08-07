@@ -1,5 +1,6 @@
 #register__container {
     min-width: 30%;
+    max-width: 30%;
     min-height: 550px;
     height: fit-content;
 }
@@ -17,10 +18,17 @@
     text-align: center;
 }
 
+#registerFailMsg {
+    display: none;
+    color: red;
+    text-align: center;
+}
+
 /* tablets */
 @media only screen and (max-width: 1300px) {
     #register__container {
         min-width: 40%;
+        max-width: 100%;
     }
 }
 
@@ -28,6 +36,7 @@
 @media only screen and (max-width: 768px) {
     #register__container {
         min-width: 80%;
+        max-width: 100%;
     }
 }
 

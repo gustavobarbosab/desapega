@@ -1,9 +1,8 @@
-import loadPage from "../../commons/script/load-page.js"
-
-const PAGES_PATH = "../../pages/"
+import Page from "../../commons/script/load-page.js"
 
 function sendForm(form) {
     let formData = new FormData(form);
+    hideError()
 
     const options = {
         method: "POST",
@@ -19,17 +18,29 @@ function sendForm(form) {
         })
         .then(response => {
             if (response.success) {
-                alert("Cadastro feito com sucesso!")
-                loadPage(PAGES_PATH,"home")
+                alert(response.message);
+                Page.create("home").load();
             } else {
-                alert("Houve um erro, tente novamente!")
+                showError()
+                alert("Houve um erro, tente novamente!");
             }
         })
         .catch(error => {
+            showError()
             console.error("Erro de rede - requisição não finalizada: " + error);
         })
 }
 
+function hideError() {
+    const error = document.querySelector("#registerFailMsg");
+    error.style.display = "none"
+}
+
+function showError() {
+    const error = document.querySelector("#registerFailMsg");
+    error.style.display = "block"
+}
+ 
 export default function startRegister() {
     const form = document.querySelector("#form-register");
     form.onsubmit = function (e) {
