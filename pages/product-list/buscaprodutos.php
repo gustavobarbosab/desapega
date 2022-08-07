@@ -1,48 +1,29 @@
 <?php
-
 require  "../../database/conexaoMysql.php";
 require  "../../commons/php/baseResponse.php";
 require "../../commons/php/autenticacao.php";
 
 session_start();
 $pdo = mysqlConnect();
-exitWhenNotLogged($pdo);
+$offset = $_GET['pag'];
+$title = $_GET['title'] ?? "";
 
-$pagina = $_GET['pag'];
-$palavraChave1 = $_GET['pchave1'] ?? "";
-$palavraChave2 = $_GET['pchave2'] ?? "";
-$palavraChave3 = $_GET['pchave3'] ?? "";
-
-$palavraChave1 = htmlspecialchars($palavraChave1);
-$palavraChave2 = htmlspecialchars($palavraChave2);
-$palavraChave3 = htmlspecialchars($palavraChave3);
+$email = $_SESSION['emailUsuario'];
 
 header("Content-Type: application/json");
 try {
-    // $sql = <<<SQL
-    //     SELECT * FROM anuncio
-    //     WHERE
-    //     descricao like '%?%' AND
-    //     descricao like '%?%' AND
-    //     descricao like '%?%'
-    //     ORDER BY data_hora
-    //     LIMIT 6 OFFSET ?;
-    // SQL;
     $sql = <<<SQL
-        SELECT * FROM anuncio
+        SELECT * FROM anuncio JOIN anunciante ON cod_anunciante = codigo
+        WHERE titulo LIKE :title AND email = :email
         ORDER BY data_hora
+        LIMIT 20 OFFSET :offset;
     SQL;
 
     $stmt = $pdo->prepare($sql);
-
-    //$stmt->execute([$palavraChave1,$palavraChave2,$palavraChave3,$pagina]);
-    $stmt->execute([]);
-
+    $stmt->execute([":title" => "%".$title."%",":offset" => $offset, ":email" => $email]);
     $dados = $stmt->fetchAll();
-
     echo json_encode($dados);
-
-}catch (Exception $ex) {
+} catch (Exception $ex) {
     http_response_code(500);
     echo json_encode(new RequestResponse(false, $ex->getMessage()));
 }
