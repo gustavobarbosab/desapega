@@ -8,10 +8,14 @@
     $newDescription = $_POST['descriptionInput'] ?? "";
     $newTitle = $_POST['titleInput'] ?? "";
     $NewPrice = $_POST['NewPrice'] ?? "";
+    $cep = $_POST['cep'] ?? "";
+    $bairro = $_POST['bairro'] ?? "";
+    $cidade = $_POST['cidade'] ?? "";
+    $estado = $_POST['estado'] ?? "";
 
     $sql = <<<SQL
         UPDATE anuncio
-        SET descricao = ? , preco = ? , titulo = ?
+        SET descricao = ? , preco = ? , titulo = ?, cep = ?, bairro = ?, cidade = ?, estado = ?
         WHERE codigo = $codigo
     SQL;
 
@@ -20,18 +24,18 @@
         $pdo->beginTransaction();
 
         $stmt = $pdo->prepare($sql);
-        if(!$stmt->execute([$newDescription,$NewPrice,$newTitle])){
+        if(!$stmt->execute([$newDescription,$NewPrice,$newTitle,$cep,$bairro,$cidade,$estado])){
             throw new Exception('Edit error');
         }
 
         $pdo->commit();
 
-        echo json_encode(new RequestResponse(true, "Anuncio editado com sucesso!"));
+        echo true;
 
     }catch(Exception $err) {
         $pdo->rollBack();
         http_response_code(500);
-        echo json_encode(new RequestResponse(false, $err->getMessage()));
+        echo false;
     }
     
 ?>

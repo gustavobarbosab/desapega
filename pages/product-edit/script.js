@@ -17,6 +17,13 @@ window.onload = function(){
         }
     })
 
+    document.querySelector("#addressField").addEventListener("click",() => {
+        document.querySelector(".footerForm").style.display = "block"
+    })
+    document.querySelector(".btn-close").addEventListener("click",() => {
+        document.querySelector(".footerForm").style.display = "none"
+    })
+    
     document.querySelector("button[type=submit]").addEventListener("click",()=>{
         console.log("clicado");
 
@@ -44,10 +51,6 @@ const submitData = async function (form) {
 
     if(!response.ok) throw new Error(response.statusText);
 
-    var data = await response.json();
-
-    if(data.success) alert(data.detail);
-    else alert("falha");
 }
 
 function prepareData() {
@@ -83,8 +86,15 @@ const preencheDado = dados => {
     let titleF = document.querySelector("#titleField");
     let descriptionF = document.querySelector("#descriptionField");
     let priceF = document.querySelector("#price");
+    let address = document.querySelector("#addressField");
 
-    
+    address.innerHTML = dados.cep + " " + dados.bairro + "," + dados.cidade + "-" + dados.estado;
+
+    document.querySelector("#cep").value = dados.cep;
+    document.querySelector("#bairro").value = dados.bairro;
+    document.querySelector("#cidade").value = dados.cidade;
+    document.querySelector("#estado").value = dados.estado;
+
     titleF.innerHTML = dados.titulo;
     descriptionF.innerHTML = dados.descricao;
     document.querySelector("#priceInput").value = dados.preco;

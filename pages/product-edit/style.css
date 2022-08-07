@@ -1,3 +1,5 @@
+@import "../product-detail/modalintesse.css";
+
 #priceInput {
     padding: 2px;
     display: none;
@@ -13,4 +15,31 @@
 .productDetail span{
     font-size: x-small;
     color: #C8C8C8;
+}
+
+
+.footerForm{
+    display: none;
+    position: absolute;
+    transform: translate(100%,-150%);
+}
+
+.footerForm input, .footerForm label{
+    display: block;
+}
+.footerForm label{
+    color: #C8C8C8;
+    font-size: medium;
+}
+.footerForm input{
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 6px;
+}
+
+.footerForm input:focus{
+    outline: none;
+    border: 1px solid #FFE200;
+    box-shadow: 0px 0px 5px #fff291;
 }

@@ -46,10 +46,17 @@ body{
 }
 
 .productDetail p{
-    max-height: 210px;
-    height: 210px;
+    max-height: 180px;
+    height: 180px;
     color: #A3A3A3;
     overflow-y: auto;
+}
+
+.productDetail address {
+    max-height: 30px;
+    height: 30px;
+    color: #A3A3A3;
+    font-size: small;
 }
 
 .productDetail .btn-primary{
