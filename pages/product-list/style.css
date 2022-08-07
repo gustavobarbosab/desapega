@@ -66,25 +66,37 @@ body{
     box-shadow: 0 8px 20px -15px var(--font-dark);
 }
 
-.delButton{
+.delButton, .editButton{
     position: absolute;
-    right: -15px;
     top: -10px;
     border-radius: 80%;
-    background: #DB1D00;
-    color: white;
     border: none;
     cursor: pointer;
     visibility: hidden;
 }
-.delButton i{
+
+.delButton {
+    background: #DB1D00;
+    color: white;
+    right: -15px;
+}
+
+.delButton i, .editButton i{
     padding: 7px;
 }
 .delButton:hover{
     background-color: #b91900;
 }
 
-/* EFEITO */
+.editButton{
+    background: #dbb300;
+    color: black;
+    left: 15px;
+}
+
+.editButton:hover{
+    background: #967a00;
+}
 
 
 /* RESPONSIVIDADE */
