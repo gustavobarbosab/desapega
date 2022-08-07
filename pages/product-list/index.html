@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../../commons/menu.css">
     <script src="script.js"></script>
     <script src="deleteMode.js"></script>
+    <script src="../../commons/script/logout.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Listagem Produto</title>
 </head>
@@ -18,19 +19,12 @@
             alt="logo_desapega"
             height="40"
         >
-        <input 
-            type="text" 
-            name="searchBar" 
-            id="search__input"
-            placeholder="Busque um produto"
-        >
-        <a href="">Criar Conta</a>
-        <a href="">Entrar</a>
     </header>
     <main>
         <aside class="menu">
             <button class="menuItem btn-modeDelete" onclick="modeDelete()">Modo deletar</button>
             <button class="menuItem">Cadastrar Anuncio</button>
+            <button class="menuItem" id="logout" onclick="doLogout()">Logout</button>
         </aside>
        <div id="main__container" class="contentDesapega">
             <!-- conteudo dinamico  -->
@@ -42,8 +36,7 @@
                                 src="../../commons/images/placeholder_product.jpg" 
                                 alt="imagemProduto" 
                                 width="200"
-                                height="160"
-                            >
+                                height="160">
                             <div class="card-text">
                                 <h1>{{item.name}}</h1>
                                 <h2 id="price">R$ {{item.preco}}</h2>

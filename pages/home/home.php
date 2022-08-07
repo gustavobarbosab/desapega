@@ -8,7 +8,7 @@ $pdo = mysqlConnect();
 
 http_response_code(302);
 if (checkLogged($pdo)) {
-    echo json_encode(RequestResponse::newPage(true, "/pages/product-detail/index.html"));
+    echo json_encode(RequestResponse::newPage(true, "/pages/product-list/index.html"));
 } else {
     echo json_encode(RequestResponse::newPage(true, "/default-product-list"));
 }
