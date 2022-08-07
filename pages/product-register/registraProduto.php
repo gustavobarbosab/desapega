@@ -62,14 +62,13 @@ require  "../../commons/php/baseResponse.php";
     
     function swalsuccess($msg) {
         echo "<script>
-        window.alert('$msg');;
+        window.alert('$msg');
     </script>";    
     }
 
     function swalerror($msg) {
         echo "<script>
             window.alert('$msg');
-            window.location.href='../../pages/product-register/index.html';
     </script>";
     }   
 ?>
