@@ -12,7 +12,7 @@ try {
     $sql = <<<SQL
         SELECT * FROM anuncio
         ORDER BY data_hora
-        LIMIT 6 OFFSET ?;
+        LIMIT 20 OFFSET ?;
     SQL;
 
     $stmt = $pdo->prepare($sql);
