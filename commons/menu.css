@@ -1,12 +1,10 @@
-@import "./style.css";
-
 .menu{
     position: fixed;
     top:110px;
     height: fit-content;
     width: 2%;
     overflow-x: hidden; 
-    border-right: 4px solid var(--color-primary);
+    border-right: 4px solid #FFE200;
     z-index: 99;
 }
 
@@ -29,7 +27,7 @@
 }
 
 .menuItem:hover{
-    background-color: var(--color-primary);
+    background-color: #FFE200;
 }
 
 /* RESPONSIVIDADE */

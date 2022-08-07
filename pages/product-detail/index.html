@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
     <title>Detalhe Produto</title>
 </head>
 <body>
@@ -33,10 +34,22 @@
                 id="imageProduct"
             >
             <div class="productDetail">
-                <h3>Notebook Slim</h3>
-                <h3 id="price">R$ 5000,00</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae inventore fuga exercitationem officia impedit, qui ipsa corporis quos commodi debitis et asperiores voluptatum tenetur, iusto expedita, dolores praesentium atque maxime.</p>
-                <button>Tenho Interesse</button>
+                <h3 id="titleField"></h3>
+                <h3 id="price"></h3>
+                <p id="descriptionField"></p>
+                <div class="modal">
+                    <div class="interesseModal">
+                        <button class="btn-close" onclick="closeModal()">X</button>
+                        <form action="registrainteresse.php" method="post" name="interesseForm" id="FormInteresse">
+                            <label for="phoneField">Tel. Contato: </label>
+                            <input type="tel" name="contato" id="phoneField" required>
+                            <label for="msgField">Mensagem para Anunciante: </label>
+                            <textarea name="mensagem" id="msgField" form="FormInteresse" required></textarea>
+                            <button class="btn-primary" type="submit">Enviar</button>
+                        </form>
+                    </div>
+                </div>
+                <button class="btn-primary" onclick="activateModal()">Tenho Interesse</button>  
             </div>  
         </div>
     </main>

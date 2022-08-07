@@ -1,5 +1,6 @@
 @import "../../commons/style.css";
 @import "../../commons/header.css";
+@import "./modalintesse.css";
 
 body{
     background-color: var(--background);
@@ -10,13 +11,12 @@ body{
 
 /* CONTEUDO PRINCIPAL */
 .content{
-    width: 60%;
+    width: 70%;
     margin: 50px auto;
     box-shadow: 0px 3px 6px #e0e0e0;
     background-color: #fff;
     min-height: 400px;
     height: fit-content;
-
 }
 
 /* IAMGEM */
@@ -28,7 +28,7 @@ body{
 /* DADOS PRODUTO */
 .productDetail{
     min-height: 330px;
-    width: 35%;
+    width: 30%;
     margin: 32px 33px;
     display: inline-block;
     vertical-align: top;
@@ -49,9 +49,10 @@ body{
     max-height: 210px;
     height: 210px;
     color: #A3A3A3;
+    overflow-y: auto;
 }
 
-.productDetail button{
+.productDetail .btn-primary{
 
     background-color: #5DBDEA;
     color: white;

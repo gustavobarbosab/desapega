@@ -1,0 +1,9 @@
+RewriteEngine On
+RewriteRule ^([a-zA-Z0-9]+)$ index.html?path=$1
+php_value display_errors Off
+php_value mbstring.http_input auto
+php_value date.timezone America/Sao_Paulo
+php_value mysql.default.user      epiz_32307672
+php_value mysql.default.password  c3BoY1CbPxWrU
+php_value mysql.default.host      sql300.epizy.com
+php_value mysql.default.dbname      epiz_32307672_desapego
