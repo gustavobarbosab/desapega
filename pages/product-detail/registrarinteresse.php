@@ -7,9 +7,11 @@
 
     $contato = $_POST['contato'] ?? "";
     $mensagem = $_POST['mensagem'] ?? "";
+    $date = date('Y-m-d');
     
     $sql = <<<SQL
-        
+        INSERT INTO interesse (codigo_anuncio, mensagem, contato, data_hora)
+        VALUES (?, ?, ?, ?)
     SQL;
 
     header("Content-Type: application/json");
@@ -17,7 +19,7 @@
         $pdo->beginTransaction();
 
         $stmt = $pdo->prepare($sql);
-        if(!$stmt->execute([$codigo,$contato,$mensagem])){
+        if(!$stmt->execute([$codigo,$mensagem,$contato,$date])){
             throw new Exception('Erro ao registrar interesse');
         }
 

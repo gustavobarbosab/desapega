@@ -32,12 +32,12 @@ const preencheDado = dados => {
     let titleF = document.querySelector("#titleField");
     let descriptionF = document.querySelector("#descriptionField");
     let priceF = document.querySelector("#price");
-
+    let address = document.querySelector("#addressField");
     
     titleF.innerHTML = dados.titulo;
     descriptionF.innerHTML = dados.descricao;
     priceF.innerHTML = parseFloat(dados.preco).toLocaleString("pt-br",{style:'currency',currency: 'BRL'});
-
+    address.innerHTML = dados.cep + " " + dados.bairro + "," + dados.cidade + "-" + dados.estado;
 }
 
 function activateModal() {
@@ -58,9 +58,10 @@ const registrarInteresse = async function (e) {
 
     const options = {
         method: "POST",
-        body: formData
+        body: formData,
+        headers: {"Access-Control-Allow-Origin":"*"}
     }
-    let response = await fetch("registrainteresse.php",options);
+    let response = await fetch("registrarinteresse.php",options);
 
     if(!response.ok) throw new Error(response.statusText);
 
