@@ -13,10 +13,10 @@ const appendProducts = function (dados) {
     })
 }
 
-const searchProduct = async function () {
+const searchProduct = async function (title) {
     let totalcards = document.querySelectorAll(".card-desapega").length;
     try {
-        let response = await fetch(`pages/default-product-list/buscaprodutos.php?offset=${totalcards}`)
+        let response = await fetch(`pages/default-product-list/buscaprodutos.php?offset=${totalcards}&title=${title || ""}`)
         if (!response.ok) throw new Error(response.statusText);
         var data = await response.json();
         appendProducts(data);
@@ -27,11 +27,24 @@ const searchProduct = async function () {
 }
 
 export default function startDefaultList() {
+    let search = document.getElementById("search__input")
+
+    search.onkeydown = (evt) => {
+        let titleToSearch = search.value;
+        if (evt.key != "Enter") {
+            return;
+        }
+
+        document.querySelectorAll(".card-desapega").forEach(e => e.remove());
+        searchProduct(titleToSearch); 
+    }
+
     window.onscroll = async function () {
         if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight-40)) {
-            searchProduct();
+            searchProduct(search.data);
         }
     };
+
     searchProduct();
 }
 
