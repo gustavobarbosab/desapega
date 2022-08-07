@@ -23,7 +23,7 @@
     <main>
         <aside class="menu">
             <button class="menuItem btn-modeDelete" onclick="modeDelete()">Modo deletar</button>
-            <button class="menuItem">Cadastrar Anuncio</button>
+            <a class="menuItem" href="http://desapego.store/pages/product-register/">Cadastrar Anuncio</a>
             <button class="menuItem" id="logout" onclick="doLogout()">Logout</button>
         </aside>
        <div id="main__container" class="contentDesapega">
@@ -49,6 +49,9 @@
                     <button class="delButton" type="button" onclick="deleteProduct(event)">
                         <i class="fa fa-trash" aria-hidden="true"></i>
                     </button>
+                    <a class="editButton" href="http://desapego.store/pages/product-edit/?cod={{cod-item}}">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </a>
                 </div>
             </template>
        </div>
