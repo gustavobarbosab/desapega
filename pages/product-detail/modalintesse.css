@@ -1,0 +1,87 @@
+.modal{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.397);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    display: none;
+    transition: ease-in-out 100ms;
+}
+
+.interesseModal{
+    min-height: 45%;
+    height: fit-content;
+    min-width: 50%;
+    width: fit-content;
+    position: absolute;
+
+    padding: 0 5% 5%;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px #e0e0e0;
+    background-color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+}
+
+.btn-close {
+    
+    position: absolute;
+    color: #707070;
+    right: 0;
+    font-weight: bold;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin: 3px 4px; 
+}
+.btn-close:hover{
+    color: #2c2c2c;
+}
+
+#FormInteresse input, #FormInteresse label, #FormInteresse textarea{
+    display: block;
+    width: 90%;
+    margin: 5% auto;
+    color: #707070;
+}
+#FormInteresse textarea{
+    min-height: 15%;
+    height: fit-content;
+}
+
+#FormInteresse input, #FormInteresse textarea{
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 6px;
+}
+
+#FormInteresse input:focus, #FormInteresse textarea:focus{
+    outline: none;
+    border: 1px solid #FFE200;
+    box-shadow: 0px 0px 5px #fff291;
+}
+
+/* tablet */
+@media only screen and (max-width: 1300px) {
+    .interesseModal{
+        min-height: 50%;;
+        width: 60%;
+    }
+
+}
+
+/* smartphone */
+@media only screen and (max-width: 800px) {
+    .interesseModal{
+        min-height: 50%;;
+        width: 80%;
+    }
+    .btn-close{
+        font-size: larger;
+    }
+    
+}

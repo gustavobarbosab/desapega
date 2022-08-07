@@ -1,18 +1,15 @@
-<?php
+<?php 
     require  "../../database/conexaoMysql.php";
     require  "../../commons/php/baseResponse.php";
     $pdo = mysqlConnect();
 
     $codigo = $_POST['cod'] ?? "";
 
-    $newDescription = $_POST['descriptionInput'] ?? "";
-    $newTitle = $_POST['titleInput'] ?? "";
-    $NewPrice = $_POST['NewPrice'] ?? "";
-
+    $contato = $_POST['contato'] ?? "";
+    $mensagem = $_POST['mensagem'] ?? "";
+    
     $sql = <<<SQL
-        UPDATE anuncio
-        SET descricao = ? , preco = ? , titulo = ?
-        WHERE codigo = $codigo
+        
     SQL;
 
     header("Content-Type: application/json");
@@ -20,13 +17,13 @@
         $pdo->beginTransaction();
 
         $stmt = $pdo->prepare($sql);
-        if(!$stmt->execute([$newDescription,$NewPrice,$newTitle])){
-            throw new Exception('Edit error');
+        if(!$stmt->execute([$codigo,$contato,$mensagem])){
+            throw new Exception('Erro ao registrar interesse');
         }
 
         $pdo->commit();
 
-        echo json_encode(new RequestResponse(true, "Anuncio editado com sucesso!"));
+        echo json_encode(new RequestResponse(true, "Interesse registrado com sucesso!"));
 
     }catch(Exception $err) {
         $pdo->rollBack();

@@ -15,19 +15,24 @@ $palavraChave3 = htmlspecialchars($palavraChave3);
 
 header("Content-Type: application/json");
 try {
+    // $sql = <<<SQL
+    //     SELECT * FROM anuncio
+    //     WHERE
+    //     descricao like '%?%' AND
+    //     descricao like '%?%' AND
+    //     descricao like '%?%'
+    //     ORDER BY data_hora
+    //     LIMIT 6 OFFSET ?;
+    // SQL;
     $sql = <<<SQL
         SELECT * FROM anuncio
-        WHERE
-        descricao like '%?%' AND
-        descricao like '%?%' AND
-        descricao like '%?%'
         ORDER BY data_hora
-        LIMIT 6 OFFSET ?
     SQL;
 
     $stmt = $pdo->prepare($sql);
 
-    $stmt->execute([$palavraChave1,$palavraChave2,$palavraChave3,$pagina]);
+    //$stmt->execute([$palavraChave1,$palavraChave2,$palavraChave3,$pagina]);
+    $stmt->execute([]);
 
     $dados = $stmt->fetchAll();
 
