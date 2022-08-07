@@ -1,5 +1,6 @@
 // Include here the function to start the page script and reference it in function createPage 
 import startRegister from "../../pages/register/register.js";
+import startLogin from "../../pages/login/script.js";
 
 export default class Page {
 
@@ -57,6 +58,7 @@ export default class Page {
                 }
             case "login":
                 {
+                    newPage.loadScript = startLogin
                     newPage.pageTitle = "Login";
                     break;
                 }
