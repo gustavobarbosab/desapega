@@ -1,5 +1,5 @@
 const appendProducts = function (dados) {
-    let container = document.querySelector("#default_main__container");
+    let container = document.querySelector(".contentDesapega");
     let template = document.querySelector("#templateProduct");
 
     dados.forEach(item => {
