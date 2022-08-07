@@ -23,7 +23,7 @@
     <main>
         <aside class="menu">
             <button class="menuItem btn-modeDelete" onclick="modeDelete()">Modo deletar</button>
-            <a class="menuItem" href="http://desapego.store/pages/product-register/">Cadastrar Anuncio</a>
+            <button class="menuItem" onclick="doRegister()">Cadastrar Anuncio</button>
             <button class="menuItem" id="logout" onclick="doLogout()">Logout</button>
         </aside>
        <div id="main__container" class="contentDesapega">
@@ -56,6 +56,11 @@
             </template>
        </div>
     </main>
+    <script>
+        const doRegister = function() {
+            window.location.href = "http://desapego.store/pages/product-register/";
+        }
+    </script>
     <footer>
         &copy; 2022 DESAPEGO
     </footer>
