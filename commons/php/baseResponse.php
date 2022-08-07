@@ -3,11 +3,28 @@
 class RequestResponse
 {
   public $success;
-  public $detail;
+  public $message;
+  public $path;
+  public $filename;
 
-  function __construct($success, $detail)
+  function __construct()
   {
-    $this->success = $success;
-    $this->detail = $detail;
+  }
+
+  public static function newPage($success, $path, $filename)
+  {
+    $instance = new self();
+    $instance->success = $success;
+    $instance->path = $path;
+    $instance->filename = $filename;
+    return $instance;
+  }
+
+  public static function basicResponse($success, $message)
+  {
+    $instance = new self();
+    $instance->success = $success;
+    $instance->message = $message;
+    return $instance;
   }
 }
