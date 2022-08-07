@@ -8,7 +8,7 @@ body{
 }
 
 /* CONTEUDO PRINCIPAL */
-.content{
+.contentDesapega{
     width: 90%;
     margin: 50px auto;
     height: fit-content;
@@ -92,7 +92,7 @@ body{
 /* tablet */
 @media only screen and (max-width: 1300px) {
 
-    .content{
+    .contentDesapega{
         width: 90%;
     }
     .card-desapega, .card-desapega:visited{
@@ -105,7 +105,7 @@ body{
 
 /* smartphone */
 @media only screen and (max-width: 800px) {
-    .content{
+    .contentDesapega{
         width: 90%;
     }
 

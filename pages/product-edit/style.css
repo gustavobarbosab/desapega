@@ -43,3 +43,11 @@
     border: 1px solid #FFE200;
     box-shadow: 0px 0px 5px #fff291;
 }
+
+/* smartphone */
+@media only screen and (max-width: 800px) {
+    .footerForm{
+        transform: translate(50%,-150%);
+    }
+    
+}
