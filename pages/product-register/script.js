@@ -1,38 +1,37 @@
-window.onload = function(){    
-    
-    let titulo = document.querySelector("#titulo");
-    let descricao = document.querySelector("#descricao");
-    let cep = document.querySelector("#cep");
-    let bairro = document.querySelector("#bairro");
-    let cidade = document.querySelector("#cidade");
-    let estado = document.querySelector("#estado");
-    let cod_categoria = document.querySelector("#cod_categoria");
-    let cod_anunciante = document.querySelector("#cod_anunciante");
-    let btn = document.querySelector("#btn");
-    let form = document.querySelector("#form");
-    let data = new FormData(form);
+window.onload = function(){ 
+    let btn_registrar = document.querySelector("#btn_registrar");
+    let btn_cancelar = document.querySelector("#btn_cancelar");
+    btn_registrar.addEventListener("click", cadastrarProduto);
+    btn_cancelar.addEventListener("click", cancelar);
+    // Função para pegar o valor digitado no input, caso tenha sido preenchido
+    // adicionar no campo HTML o novo preço, esconder input e limpa-lo    
+}
+
+function cadastrarProduto(form){
+    let formData = new FormData(form);     
+        
+    let produto = {
+        method: "POST",
+        formData: formData    
+    };
+
     let url = "/registraProduto.php";
     let method = "POST";
+    
+    let xhr = new XMLHttpRequest();
 
-    btn.addEventListener("click", function(){
-        let xhr = new XMLHttpRequest();
-        xhr.open(method, url);
-        xhr.onreadystatechange = function(){
-            if(xhr.status == 200){
-                let response = xhr.responseText;
-                console.log(response);
-            }
+
+    xhr.open(method, url);
+    xhr.onreadystatechange = function(){
+        if(xhr.status == 200){
+            let response = xhr.responseText;
+            console.log(response);
         }
-        xhr.send(data);
-    })
-    // Função para pegar o valor digitado no input, caso tenha sido preenchido
-    // adicionar no campo HTML o novo preço, esconder input e limpa-lo
-    priceInput.addEventListener("blur",()=>{
-        if(priceInput.value){
-            priceInput.style.display = "none";
-            let price_converted = parseFloat(priceInput.value)
-            priceField.innerText = price_converted.toLocaleString("pt-br",{style:'currency',currency: 'BRL'});
-            priceInput.value = "";
-        }
-    })
+    } 
+    xhr.send(produto);
+}
+
+function cancelar(){
+    //recarregar a página
+    window.location.reload();
 }
