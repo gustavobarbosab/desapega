@@ -4,13 +4,13 @@
         <template id="templateProduct">
             <div class="card-desapega">
                 <a href="../../pages/product-detail/?cod={{item.cod}}" class="cardLink">
-                    <div class="card-product">
+                    <div class="card-img">
                         <img src="../../commons/images/placeholder_product.jpg" alt="imagemProduto" width="200"
                             height="160">
-                        <div class="card-text">
-                            <h1>{{item.name}}</h1>
-                            <h2 id="price">R$ {{item.preco}}</h2>
-                        </div>
+                    </div>
+                    <div class="card-text">
+                        <h1>{{item.name}}</h1>
+                        <h2 id="price">R$ {{item.preco}}</h2>
                     </div>
                     <p class="card-description">
                         {{item.description}}
