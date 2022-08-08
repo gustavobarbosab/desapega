@@ -51,6 +51,15 @@ const submitData = async function (form) {
 
     if(!response.ok) throw new Error(response.statusText);
 
+    let data = await response.json();
+
+    if(data) {
+        let isConfirmed = window.confirm(data.message);
+        if(isConfirmed){
+            window.location.href = "http://desapego.store/default-product-list";
+        }
+    }
+
 }
 
 function prepareData() {

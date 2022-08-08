@@ -30,12 +30,14 @@
 
         $pdo->commit();
 
-        echo true;
+        $response = RequestResponse::basicResponse(true,"Edição feita com sucesso");
+        echo json_encode($response);
 
     }catch(Exception $err) {
         $pdo->rollBack();
         http_response_code(500);
-        echo false;
+        $response = RequestResponse::basicResponse(false,"Erro na edição");
+        echo json_encode($response);
     }
     
 ?>
