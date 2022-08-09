@@ -11,7 +11,7 @@ $email = $_SESSION['emailUsuario'];
 
 try {
     $sql = <<<SQL
-        SELECT interesse.codigo, interesse.data_hora, interesse.mensagem, interesse.contato, anuncio.codigo, anuncio.titulo 
+        SELECT interesse.codigo as "int_cod", interesse.data_hora, interesse.mensagem, interesse.contato, anuncio.codigo as 'an_cod', anuncio.titulo 
         FROM interesse 
         INNER JOIN anuncio ON codigo_anuncio = anuncio.codigo
         INNER JOIN anunciante ON anunciante.codigo = cod_anunciante
@@ -68,7 +68,7 @@ try {
 
                 <?php
                 while ($row = $stmt->fetch()) {
-                    $cod_interesse = htmlspecialchars($row['codigo']);
+                    $cod_interesse = htmlspecialchars($row['int_cod']);
                     $date = htmlspecialchars($row['data_hora']);
                     $anuncio_title = htmlspecialchars($row['titulo']);
                     $msg = htmlspecialchars($row['mensagem']);
