@@ -1,8 +1,11 @@
 <?php
 require_once  "../../database/conexaoMysql.php";
 require_once  "../../commons/php/baseResponse.php";
+require_once "../../commons/php/autenticacao.php";
 
+session_start();
 $pdo = mysqlConnect();
+exitWhenNotLogged($pdo);
 
 $titulo = $_POST['titulo'] ?? "";
 $descricao = $_POST['descricao'] ?? "";
@@ -12,7 +15,7 @@ $bairro = $_POST['bairro'] ?? "";
 $cidade = $_POST['cidade'] ?? "";
 $estado = $_POST['estado'] ?? "";
 $codcategoria = $_POST['cod_categoria'] ?? "";
-$codanunciante = $_POST['cod_anunciante'] ?? "";
+$codanunciante = getLoggedUserId($pdo);
 $success = false;
 try {
     $pdo->beginTransaction();

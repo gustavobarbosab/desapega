@@ -12,16 +12,15 @@ function checkPassword($pdo, $email, $senha)
     $stmt->execute([$email]);
     $senhaHash = $stmt->fetchColumn();
 
-    if (!$senhaHash) 
+    if (!$senhaHash)
       return false; // email não encontrado
 
     if (!password_verify($senha, $senhaHash))
       return false; // senha incorreta
-      
+
     // email e senha corretos
     return $senhaHash;
-  } 
-  catch (Exception $e) {
+  } catch (Exception $e) {
     exit('Falha inesperada: ' . $e->getMessage());
   }
 }
@@ -46,7 +45,7 @@ function checkLogged($pdo)
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$email]);
     $senhaHash = $stmt->fetchColumn();
-    if (!$senhaHash) 
+    if (!$senhaHash)
       return false; // nenhum resultado (email não encontrado)
 
     // Gera uma nova string de login com base nos dados
@@ -57,8 +56,7 @@ function checkLogged($pdo)
       return false;
 
     return true;
-  } 
-  catch (Exception $e) {
+  } catch (Exception $e) {
     exit('Falha inesperada: ' . $e->getMessage());
   }
 }
@@ -71,4 +69,28 @@ function exitWhenNotLogged($pdo)
     echo json_encode("Acesso não autorizado!");
     exit();
   }
+}
+
+function getLoggedUserId($pdo)
+{
+  $sql = <<<SQL
+    SELECT codigo
+    FROM anunciante
+    WHERE email = ?
+    SQL;
+
+    $email = $_SESSION['emailUsuario'];
+
+    try {
+      $stmt = $pdo->prepare($sql);
+      $stmt->execute([$email]);
+      $codigo = $stmt->fetchColumn();
+      
+      if (!$codigo)
+        return null;
+  
+    } catch (Exception $e) {
+      return null;
+    }
+    return $codigo;
 }
