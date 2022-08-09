@@ -6,6 +6,12 @@
     overflow-x: hidden; 
     border-right: 4px solid #FFE200;
     z-index: 99;
+    color: black;
+}
+
+.menu a {
+    text-decoration: none;
+    color: black;
 }
 
 .menu:hover{
