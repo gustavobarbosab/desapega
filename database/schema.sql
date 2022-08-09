@@ -11,7 +11,7 @@ CREATE TABLE anunciante
    codigo int PRIMARY KEY auto_increment,
    nome varchar(200) not null,
    cpf varchar(20) not null,
-   email varchar(150) not null,
+   email varchar(150) not null UNIQUE,
    telefone varchar(50) not null,
    password_hash varchar(255) not null
 ) ENGINE=InnoDB;
