@@ -37,14 +37,10 @@ try {
 
         $stmt = $pdo->prepare($sql);
         $stmt->execute([":id" => $id]);
-        
+
         if ($stmt->rowCount()) {
             $success = true;
-        } else {
-            $error = "Caiu Aqui";
         }
-    } else {
-        $error = "Caiu Aqui entao";
     }
 } catch (Exception $ex) {
     $error = $ex->getMessage();

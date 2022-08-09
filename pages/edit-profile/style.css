@@ -1,0 +1,128 @@
+@import "../../commons/style.css";
+
+/* HEADER */
+header {
+    position: relative;
+    background-color: var(--color-primary);
+    box-shadow: 0px 3px 6px #00000029;
+    width: 100%;
+    height: fit-content;
+}
+
+#logo,
+#search,
+#menu {
+    min-height: 115px;
+    padding: 0;
+}
+
+#register__container {
+    padding: 30px;
+}
+
+#message_container {
+    padding: 30px 80px
+}
+
+#register__container_title h1 {
+    text-align: center;
+}
+
+/* LOGO */
+#logo {
+    width: 29%;
+    min-width: 250px;
+}
+
+#logo img {
+    height: auto;
+    width: auto;
+}
+
+/* PESQUISA */
+#search {
+    width: 39%;
+}
+
+#search input {
+    width: 100%;
+}
+
+#search>div {
+    width: 80%;
+}
+
+/* MAIN */
+#main__container {
+    position: relative;
+    width: 100%;
+}
+
+
+/* MENU DE NAVEGAÇÃO */
+#menu {
+    width: 29%;
+}
+
+nav li {
+    font-size: large;
+    color: var(--font-dark);
+    display: inline;
+    padding: 10px;
+}
+
+nav li:hover {
+    color: white;
+    cursor: pointer;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* CONTEUDO */
+main {
+    display: inline-block;
+    width: 60%;
+}
+
+/* FOOTER */
+#footer__container {
+    position: relative;
+    width: 100%;
+    padding: 10px;
+}
+
+/* RESPONSIVIDADE */
+
+/* tablets */
+@media only screen and (max-width: 1300px) {}
+
+/* smartphone */
+@media only screen and (max-width: 800px) {
+
+    /* LOGO */
+    #logo,
+    #search,
+    #menu {
+        width: 100%;
+    }
+
+    #search>div,
+    #menu>div {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+    nav li {
+        width: 100%;
+        display: block;
+        padding: 10px;
+        text-align: center;
+    }
+}
