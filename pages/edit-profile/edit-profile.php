@@ -76,7 +76,7 @@ try {
             <?php
             if ($success) {
                 echo <<<HTML
-                        <h3>Editado com sucesso</h3>
+                        <h3>Editado com sucesso! (Em caso de alteração de senha, será necessário um novo login.)</h3>
                         <p><a href="/home">Voltar</a></p>
                     HTML;
             } else {
