@@ -77,12 +77,12 @@ try {
             if ($success) {
                 echo <<<HTML
                         <h3>Editado com sucesso</h3>
-                        <p><a href="index.php">Voltar</a></p>
+                        <p><a href="/home">Voltar</a></p>
                     HTML;
             } else {
                 echo <<<HTML
                         <h3>Houve um erro ao editar!</h3>
-                        <p><a href="/home">Voltar</a></p>
+                        <p><a href="index.php">Voltar</a></p>
                         <p>$error</p>
                     HTML;
             }
