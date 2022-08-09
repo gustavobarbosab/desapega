@@ -14,9 +14,8 @@ function modeDelete () {
     
 }
 
-function deleteProduct(event) {
-    console.log(event.target);
-    let card = (event.target.parentNode).parentNode;
+async function deleteProduct(cod) {
+    let response = await fetch(`deletaproduto.php?=${cod}`);
 
-    card.remove();
+    if(!response.ok) throw new Error(response.statusText);
 }
