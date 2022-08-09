@@ -19,13 +19,14 @@ window.onload = function(){
 
     document.querySelector("#addressField").addEventListener("click",() => {
         document.querySelector(".footerForm").style.display = "block"
-    })
+    });
     document.querySelector(".btn-close").addEventListener("click",() => {
         document.querySelector(".footerForm").style.display = "none"
-    })
+    });
+
+    document.forms.formedit.onsubmit = function (e) {e.preventDefault();}
     
     document.querySelector("button[type=submit]").addEventListener("click",()=>{
-        console.log("clicado");
 
         let codigo = window.location.search.split("?cod=")[1];
     
