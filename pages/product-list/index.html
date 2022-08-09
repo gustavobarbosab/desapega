@@ -29,20 +29,18 @@
             <!-- conteudo dinamico  -->
             <template id="templateProduct">
                 <div class="card-desapega">
-                    <a href="../../pages/product-edit/?cod={{item.cod}}" class="cardLink">
-                        <div class="card-product">
-                            <img src="../../commons/images/placeholder_product.jpg" alt="imagemProduto" width="200"
-                                height="160">
-                            <div class="card-text">
-                                <h1>{{item.name}}</h1>
-                                <h2 id="price">R$ {{item.preco}}</h2>
-                            </div>
+                    <div class="card-product">
+                        <img src="../../commons/images/placeholder_product.jpg" alt="imagemProduto" width="200"
+                            height="160">
+                        <div class="card-text">
+                            <h1>{{item.name}}</h1>
+                            <h2 id="price">R$ {{item.preco}}</h2>
                         </div>
-                        <p class="card-description">
-                            {{item.description}}
-                        </p>
-                    </a>
-                    <button class="delButton" type="button" onclick="deleteProduct(event)">
+                    </div>
+                    <p class="card-description">
+                        {{item.description}}
+                    </p>
+                    <button class="delButton" type="button" onclick="deleteProduct('{{item-cod}}')">
                         <i class="fa fa-trash" aria-hidden="true"></i>
                     </button>
                     <a class="editButton" href="http://desapego.store/pages/product-edit/?cod={{cod-item}}">

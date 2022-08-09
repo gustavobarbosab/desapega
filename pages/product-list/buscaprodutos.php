@@ -15,7 +15,7 @@ $email = $_SESSION['emailUsuario'];
 header("Content-Type: application/json");
 try {
     $sql = <<<SQL
-        SELECT * FROM anuncio 
+        SELECT codigo as "codProd", titulo, descricao, preco FROM anuncio 
         JOIN anunciante ON anuncio.cod_anunciante = anunciante.codigo
         WHERE anuncio.titulo LIKE :title 
         AND anunciante.email = :email
