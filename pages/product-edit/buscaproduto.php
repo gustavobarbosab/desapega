@@ -1,7 +1,7 @@
 <?php
     
-require  "../../database/conexaoMysql.php";
-require  "../../commons/php/baseResponse.php";
+require_once  "../../database/conexaoMysql.php";
+require_once  "../../commons/php/baseResponse.php";
 $pdo = mysqlConnect();
 
 // codigo

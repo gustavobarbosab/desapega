@@ -1,10 +1,12 @@
 <?php
-require  "../../database/conexaoMysql.php";
-require  "../../commons/php/baseResponse.php";
-require "../../commons/php/autenticacao.php";
+require_once  "../../database/conexaoMysql.php";
+require_once  "../../commons/php/baseResponse.php";
+require_once "../../commons/php/autenticacao.php";
 
 session_start();
 $pdo = mysqlConnect();
+exitWhenNotLogged($pdo);
+
 $offset = $_GET['pag'];
 $title = $_GET['title'] ?? "";
 

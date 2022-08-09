@@ -1,5 +1,4 @@
 <?php
-
 class RequestResponse
 {
   public $success;

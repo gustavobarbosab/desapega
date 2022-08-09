@@ -67,6 +67,8 @@ function exitWhenNotLogged($pdo)
 {
   if (!checkLogged($pdo)) {
     http_response_code(401);
+    header("Content-Type: application/json");
+    echo json_encode("Acesso não autorizado!");
     exit();
   }
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,30 +13,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Listagem Produto</title>
 </head>
+
 <body>
     <header class="header_desapega">
-        <img 
-            src="../../commons/images/logo.svg" 
-            alt="logo_desapega"
-            height="40"
-        >
+        <img src="../../commons/images/logo.svg" alt="logo_desapega" height="40">
     </header>
     <main>
         <aside class="menu">
             <button class="menuItem btn-modeDelete" onclick="modeDelete()">Modo deletar</button>
+            <button class="menuItem"><a href="/pages/interest/">Listagem de interesses</a></button>
             <button class="menuItem" onclick="doRegister()">Cadastrar Anuncio</button>
             <button class="menuItem" id="logout" onclick="doLogout()">Logout</button>
         </aside>
-       <div id="main__container" class="contentDesapega">
+        <div id="main__container" class="contentDesapega">
             <!-- conteudo dinamico  -->
             <template id="templateProduct">
                 <div class="card-desapega">
                     <a href="../../pages/product-edit/?cod={{item.cod}}" class="cardLink">
                         <div class="card-product">
-                            <img 
-                                src="../../commons/images/placeholder_product.jpg" 
-                                alt="imagemProduto" 
-                                width="200"
+                            <img src="../../commons/images/placeholder_product.jpg" alt="imagemProduto" width="200"
                                 height="160">
                             <div class="card-text">
                                 <h1>{{item.name}}</h1>
@@ -54,10 +50,10 @@
                     </a>
                 </div>
             </template>
-       </div>
+        </div>
     </main>
     <script>
-        const doRegister = function() {
+        const doRegister = function () {
             window.location.href = "http://desapego.store/pages/product-register/";
         }
     </script>
@@ -65,4 +61,5 @@
         &copy; 2022 DESAPEGO
     </footer>
 </body>
+
 </html>
