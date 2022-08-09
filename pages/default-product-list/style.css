@@ -64,7 +64,7 @@ body {
 
 /* descricao produto */
 .card-description {
-    max-height: 70px;
+    height: fit-content;
     overflow-y: hidden;
 }
 
