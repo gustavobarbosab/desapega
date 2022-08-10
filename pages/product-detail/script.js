@@ -67,6 +67,6 @@ const registrarInteresse = async function (e) {
 
     var data = await response.json();
 
-    if(data.success) alert(data.detail);
+    if(data.success) alert(data.message);
     else alert("falha");
 }

@@ -15,7 +15,10 @@ function modeDelete () {
 }
 
 async function deleteProduct(cod) {
-    let response = await fetch(`deletaproduto.php?=${cod}`);
+    let response = await fetch(`deletaproduto.php?cod=${cod}`);
 
-    if(!response.ok) throw new Error(response.statusText);
+    if(!response.ok) 
+        throw new Error(response.statusText);
+
+    window.location.reload();
 }
