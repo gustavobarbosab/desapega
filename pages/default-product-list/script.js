@@ -1,12 +1,14 @@
 const appendProducts = function (dados) {
     let container = document.querySelector(".contentDesapega");
     let template = document.querySelector("#templateProduct");
+    let defaultImage = "https://rafaturis.com.br/wp-content/uploads/2014/01/default-placeholder.png"
 
     dados.forEach(item => {
         let Card = template.innerHTML
             .replace("{{item.cod}}", item.codigo)
             .replace("{{item.name}}", item.titulo)
             .replace("{{item.preco}}", item.preco)
+            .replace("{{item.foto}}", item.fotos[0]?.nome_arq_foto || defaultImage)
             .replace("{{item.description}}", item.descricao);
 
         container.insertAdjacentHTML("beforeend", Card);

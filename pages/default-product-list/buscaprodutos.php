@@ -18,10 +18,22 @@ try {
     SQL;
 
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([":title" => "%".$title."%",":offset" => $offset]);
-    $dados = $stmt->fetchAll();
-    echo json_encode($dados);
+    $stmt->execute([":title" => "%" . $title . "%", ":offset" => $offset]);
+    $dataToReturn = [];
+
+    while($row = $stmt->fetch()) 
+    {
+        $sqlImage = <<<SQL
+            SELECT * FROM foto
+            WHERE codigo_anuncio = $row[codigo];
+        SQL;
+        $stmtFoto = $pdo->query($sqlImage);
+        $row["fotos"] = $stmtFoto->fetchAll();
+        $dataToReturn[] = $row;
+    }
+    
+    echo json_encode($dataToReturn);
 } catch (Exception $ex) {
     http_response_code(500);
-    echo json_encode(new RequestResponse(false, $ex->getMessage()));
+    echo json_encode(RequestResponse::basicResponse(false, $ex->getMessage()));
 }
