@@ -5,7 +5,7 @@ const appendProducts = function (dados) {
     for(item of dados){
 
         let Card = template.innerHTML
-            .replace("'{{item.cod}}'",item.codProd)
+            .replace("'{{item-cod}}'",item.codProd)
             .replace("{{cod-item}}",item.codProd)
             .replace("{{item.name}}", item.titulo)
             .replace("{{item.preco}}", item.preco)

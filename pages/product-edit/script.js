@@ -57,7 +57,7 @@ const submitData = async function (form) {
     if(data) {
         let isConfirmed = window.confirm(data.message);
         if(isConfirmed){
-            window.location.href = "http://desapego.store/default-product-list";
+            window.location.href = "http://desapego.store/pages/product-list/index.html";
         }
     }
 
