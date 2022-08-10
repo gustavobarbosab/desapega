@@ -7,24 +7,23 @@ session_start();
 $pdo = mysqlConnect();
 exitWhenNotLogged($pdo);
 
-$offset = $_GET['pag'];
-$title = $_GET['title'] ?? "";
+$offset = $_GET['offset'];
 
 $email = $_SESSION['emailUsuario'];
 
 header("Content-Type: application/json");
 try {
     $sql = <<<SQL
-        SELECT codigo as "codProd", titulo, descricao, preco FROM anuncio 
-        JOIN anunciante ON anuncio.cod_anunciante = anunciante.codigo
-        WHERE anuncio.titulo LIKE :title 
-        AND anunciante.email = :email
+        SELECT anuncio.codigo as "codProd", titulo, descricao, preco
+        FROM anuncio 
+        INNER JOIN anunciante ON anuncio.cod_anunciante = anunciante.codigo
+        WHERE anunciante.email = :email
         ORDER BY anuncio.data_hora
         LIMIT 20 OFFSET :offset;
     SQL;
 
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([":title" => "%" . $title . "%", ":email" => $email, ":offset" => $offset]);
+    $stmt->execute([":email" => $email, ":offset" => $offset]);
     $dados = $stmt->fetchAll();
     echo json_encode($dados);
 } catch (Exception $ex) {
