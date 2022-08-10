@@ -25,12 +25,12 @@
 
         $pdo->commit();
 
-        echo json_encode(new RequestResponse(true, "Interesse registrado com sucesso!"));
+        echo json_encode(RequestResponse::basicResponse(true, "Interesse registrado com sucesso!"));
 
     }catch(Exception $err) {
         $pdo->rollBack();
         http_response_code(500);
-        echo json_encode(new RequestResponse(false, $err->getMessage()));
+        echo json_encode(RequestResponse::basicResponse(false, $err->getMessage()));
     }
     
 ?>
