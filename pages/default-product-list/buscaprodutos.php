@@ -14,7 +14,7 @@ try {
         SELECT * FROM anuncio
         WHERE titulo LIKE :title
         ORDER BY data_hora
-        LIMIT 20 OFFSET :offset;
+        LIMIT 10 OFFSET :offset;
     SQL;
 
     $stmt = $pdo->prepare($sql);
